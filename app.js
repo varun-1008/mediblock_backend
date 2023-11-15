@@ -11,14 +11,14 @@ const {
 const express = require("express");
 const mongoose = require("mongoose");
 const User = require("./models/user");
+require('dotenv').config();
 
 const app = express();
 app.use(express.json());
 
 const connectToDatabase = async () => {
   try {
-    const dbURI =
-      "mongodb+srv://varun:GrQf8LSNXxiO2R9g@atlascluster.5agevwf.mongodb.net/";
+    const dbURI = process.env.MONGO_DB_URI;
     await mongoose.connect(dbURI);
     console.log("Connected to the database");
   } catch (error) {
