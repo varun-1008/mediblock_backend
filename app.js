@@ -9,24 +9,24 @@ const {
   createHash,
 } = require("crypto");
 const express = require("express");
-const mongoose = require("mongoose");
-const User = require("./models/user");
-require('dotenv').config();
+// const mongoose = require("mongoose");
+// const User = require("./models/user");
+// require('dotenv').config();
 
 const app = express();
 app.use(express.json());
 
-const connectToDatabase = async () => {
-  try {
-    const dbURI = process.env.MONGO_DB_URI;
-    await mongoose.connect(dbURI);
-    console.log("Connected to the database");
-  } catch (error) {
-    console.error("Error connecting to the database:", error);
-    process.exit(1);
-  }
-};
-connectToDatabase();
+// const connectToDatabase = async () => {
+//   try {
+//     const dbURI = process.env.MONGO_DB_URI;
+//     await mongoose.connect(dbURI);
+//     console.log("Connected to the database");
+//   } catch (error) {
+//     console.error("Error connecting to the database:", error);
+//     process.exit(1);
+//   }
+// };
+// connectToDatabase();
 
 let publicKey, privateKey;
 let iv = randomBytes(16);
